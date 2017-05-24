@@ -1,4 +1,4 @@
-const DEFAULT_TITLE = 'Literate Succotash'
+const DEFAULT_TITLE = 'Jubilant Dollop'
 
 const HEAD_META = [
   {'charset': 'utf8'},
@@ -11,7 +11,7 @@ const HEAD_META = [
   {'http-equiv': 'pragma', 'content': 'no-cache'}
 ]
 
-const TITLE_TEMPLATE = '%s | Literate Succotash'
+const TITLE_TEMPLATE = '%s | Jubilant Dollop'
 
 module.exports = {
   DEFAULT_TITLE,

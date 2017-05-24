@@ -5,8 +5,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware, { END } from 'redux-saga'
 import { init } from '../actions/init-actions'
 
-import db from '../database/dexie'
-
 import RootReducer from './reducers'
 
 import runSagas from './run-sagas'
@@ -24,9 +22,7 @@ export function configureStore (initialState = {}) {
     )
   )
 
-  db.open().catch(error => console.log(`Error opening Dexie database: ${error}`))
-
-  runSagas(sagaMiddleware, db)
+  runSagas(sagaMiddleware)
 
   // run the init saga at application start time
   store.dispatch(init())

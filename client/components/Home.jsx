@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Col, Grid, Row, Well } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
 
-import HomeConstants from '../constants/home-constants'
+import Constants from '../constants/home-constants'
 
 class Home extends React.Component {
   render () {
@@ -11,10 +11,12 @@ class Home extends React.Component {
         <Helmet title='Home' />
         <Row>
           <Col xs={12}>
-            <h2><span id={HomeConstants.homeTitleId}>{HomeConstants.homeTitleText}</span></h2>
-            <Well>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan libero at arcu feugiat pulvinar. Etiam pretium justo ut hendrerit bibendum. Donec tincidunt imperdiet dui, scelerisque egestas metus pulvinar eu. Proin vulputate nisi vel ullamcorper porta. Sed ultrices massa nec quam eleifend molestie. Pellentesque dui est, viverra eget tincidunt vitae, euismod vel massa. Etiam consequat nec libero sed convallis. Ut commodo libero et sodales lacinia. Nunc at accumsan lectus. Maecenas fringilla varius sagittis. Nam et dui sed tellus finibus pulvinar vitae eget nisi. Aliquam enim sem, eleifend vitae ultricies at, pulvinar sed turpis. Nam quis arcu maximus, posuere ex quis, ullamcorper quam. Quisque molestie dui a quam euismod pulvinar vitae id velit.</p>
-            </Well>
+            <h2><span id={Constants.titleId}>{Constants.titleText}</span></h2>
+            <p>The purpose of this site is to have a go at using <a href='https://d3js.org/'>D3</a> within <a href='https://facebook.github.io/react/'>React</a> and/or with <a href='http://redux.js.org/'>Redux</a></p>
+            <blockquote>
+              <p>React doesn't play very well with D3</p>
+              <small>Someone</small>
+            </blockquote>
           </Col>
         </Row>
       </Grid>

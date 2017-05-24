@@ -6,16 +6,16 @@ import NavLink from './NavLink.jsx'
 class NavBar extends React.Component {
   render () {
     return (
-      <Navbar inverse collapseOnSelect>
+      <Navbar collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href='/'>Literate Succotash</a>
+            <a href='/'>Jubilant Dollop</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavLink to='/characters'text='Characters' />
+            <NavLink to='/rotatingvoronoi'text='Rotating Voronoi' />
           </Nav>
         </Navbar.Collapse>
       </Navbar>

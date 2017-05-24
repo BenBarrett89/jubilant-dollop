@@ -1,7 +1,7 @@
-const homeTitleId = 'homeTitle'
-const homeTitleText = 'Home Page'
+const titleId = 'homeTitle'
+const titleText = 'What is this place?'
 
 module.exports = {
-  homeTitleId,
-  homeTitleText
+  titleId,
+  titleText
 }
