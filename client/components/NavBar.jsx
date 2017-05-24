@@ -15,7 +15,7 @@ class NavBar extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavLink to='/rotatingvoronoi'text='Rotating Voronoi' />
+            <NavLink to='/introtod3'text='Intro to D3' />
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -2,13 +2,13 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './containers/App.jsx'
-import { RotatingVoronoiContainer } from './containers/RotatingVoronoiContainer.jsx'
+import { IntroToD3Container } from './containers/IntroToD3Container.jsx'
 
 import Home from './components/Home.jsx'
 
 export const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={Home} />
-    <Route path='/rotatingvoronoi' component={RotatingVoronoiContainer} />
+    <Route path='/introtod3' component={IntroToD3Container} />
   </Route>
 )
