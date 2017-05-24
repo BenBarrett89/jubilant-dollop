@@ -1,21 +1,11 @@
-const typeDecrement = 'DOMAIN_DECREMENT'
-const typeDeleteDomain = 'DOMAIN_DELETE_DOMAIN'
-const typeIncrement = 'DOMAIN_INCREMENT'
+const typeDecrementValue = 'DATA_DECREMENT_VALUE'
+const typeIncrementValue = 'DATA_INCREMENT_VALUE'
 const typeInit = 'INIT_INIT'
-const typeLoadDomains = 'DOMAIN_LOAD_DOMAINS'
-const typePostDomain = 'DOMAIN_POST_DOMAIN'
-const typeRandom = 'DOMAIN_RANDOM'
-const typeReset = 'DOMAIN_RESET'
-const typeSetDomains = 'DOMAIN_SET_DOMAINS'
+const typeResetData = 'DATA_RESET_DATA'
 
 module.exports = {
-  typeDecrement,
-  typeDeleteDomain,
-  typeIncrement,
+  typeDecrementValue,
+  typeIncrementValue,
   typeInit,
-  typeLoadDomains,
-  typePostDomain,
-  typeRandom,
-  typeReset,
-  typeSetDomains
+  typeResetData
 }

@@ -16,6 +16,7 @@ class NavBar extends React.Component {
         <Navbar.Collapse>
           <Nav>
             <NavLink to='/introtod3'text='Intro to D3' />
+            <NavLink to='/barcharts'text='Bar Charts' />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
