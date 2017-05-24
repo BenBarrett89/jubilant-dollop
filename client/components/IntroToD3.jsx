@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Col, Grid, Row } from 'react-bootstrap'
 import * as d3 from 'd3'
 import ReactFauxDOM from 'react-faux-dom'
