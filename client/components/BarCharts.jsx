@@ -24,7 +24,7 @@ class BarCharts extends React.Component {
               <p>When there is no data prop being passed into the BarChart component, it displays a message stating so</p>
             </Panel>
             <Panel header='Hard coded props' bsStyle='primary'>
-              <BarChart data={[5, 10, 15, 20, 25]} />
+              <BarChart data={{0: 5, 1: 10, 2: 15, 3: 20, 4: 25}} />
               <p>This BarChart component has hard-coded values passed into it from the BarCharts component</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>

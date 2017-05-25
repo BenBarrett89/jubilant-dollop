@@ -26,19 +26,20 @@ class BarChart extends React.Component {
       return array
     }, [])
 
-    const max = values.reduce((largest, dataItem) => dataItem > largest ? dataItem : largest, 0)
+    const max = Math.max(1, values.reduce((largest, dataItem) => dataItem > largest ? dataItem : largest, 0))
 
     d3.select(div)
       .selectAll('div')
       .data(values)
       .enter()
       .append('div')
-        .style('width', d => ((d / max) * 100) + '%')
+        .style('width', d => (Math.max(5, (d / max) * 100) + '%'))
+        .style('height', '40px')
         .style('color', 'white')
         .style('background-color', this.getColour())
         .style('text-align', 'right')
         .style('padding', '5px')
-        .text(d => d)
+        .text(d => d.toString())
 
     return div.toReact()
   }
