@@ -1,5 +1,5 @@
 # :poop: jubilant-dollop
-A quick investigation into using [React](https://facebook.github.io/react/) ~~and [Redux](http://redux.js.org/)~~  (maybe later...) together with [D3](https://d3js.org/)
+A quick investigation into using [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) together with [D3](https://d3js.org/)
 
 Install dependencies:
 ```
