@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, ButtonGroup, Col, Grid, Panel, Row } from 'react-bootstrap'
 
-import BarChart from '../components/BarChart.jsx'
+import BarChartSVG from '../components/BarChartSVG.jsx'
 import DataValue from '../components/DataValue.jsx'
 
-import Constants from '../constants/bar-charts-constants'
+import Constants from '../constants/bar-charts-svg-constants'
 
-class BarCharts extends React.Component {
+class BarChartsSVG extends React.Component {
   getDataKeys () {
     return Object.keys(this.props.data) || []
   }
@@ -18,13 +18,9 @@ class BarCharts extends React.Component {
         <Row>
           <Col xs={12}>
             <h2><span id={Constants.titleId}>{Constants.titleText}</span></h2>
-            <p>Having a go at using D3 with <a target='_blank' href='http://redux.js.org/'>Redux</a> - bar chart based on <a target='_blank' href='https://bost.ocks.org/mike/bar/'>this tutorial by Mike Bostock</a></p>
-            <Panel header='No props' bsStyle='warning'>
-              <BarChart />
-              <p>When there is no data prop being passed into the BarChart component, it displays a message stating so</p>
-            </Panel>
+            <p>Having a go at using D3 with <a target='_blank' href='http://redux.js.org/'>Redux</a> - bar chart based on <a target='_blank' href='https://bost.ocks.org/mike/bar/2'>this tutorial by Mike Bostock</a> (these bar charts are drawn with SVG rather than HTML)</p>
             <Panel header='Hard coded props' bsStyle='primary'>
-              <BarChart data={{0: 5, 1: 10, 2: 15, 3: 20, 4: 25}} />
+              <BarChartSVG data={{0: 5, 1: 10, 2: 15, 3: 20, 4: 25}} />
               <p>This BarChart component has hard-coded values passed into it from the BarCharts component</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>
@@ -34,7 +30,7 @@ class BarCharts extends React.Component {
                 })}
                 <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
               </ButtonGroup>
-              <BarChart data={this.props.data} colour='#3fad46' />
+              <BarChartSVG data={this.props.data} colour='#3fad46' />
               <p>This BarChart component has data passed to it from props, linked from the Redux state in the BarChartContainer</p>
             </Panel>
           </Col>
@@ -44,10 +40,10 @@ class BarCharts extends React.Component {
   }
 }
 
-BarCharts.propTypes = {
+BarChartsSVG.propTypes = {
   data: PropTypes.object,
   increment: PropTypes.func,
   reset: PropTypes.func
 }
 
-export default BarCharts
+export default BarChartsSVG

@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 
 import { incrementValue, resetData } from '../actions/data-actions'
 
-import BarCharts from '../components/BarCharts.jsx'
+import BarChartsSVG from '../components/BarChartsSVG.jsx'
 
-class BarChartsPage extends React.Component {
+class BarChartsSVGPage extends React.Component {
   render () {
     return (
       <div>
-        <Helmet title='Bar Charts HTML' />
-        <BarCharts {...this.props} />
+        <Helmet title='Bar Charts SVG' />
+        <BarChartsSVG {...this.props} />
       </div>
     )
   }
@@ -35,6 +35,6 @@ function mapDispatchToProps (dispatch) {
 }
 
 module.exports = {
-  BarChartsContainer: connect(mapStateToProps, mapDispatchToProps)(BarChartsPage),
-  BarChartsPage
+  BarChartsSVGContainer: connect(mapStateToProps, mapDispatchToProps)(BarChartsSVGPage),
+  BarChartsSVGPage
 }
