@@ -39,6 +39,7 @@ class BarChart extends React.Component {
         .style('background-color', this.getColour())
         .style('text-align', 'right')
         .style('padding', '5px')
+        .style('margin', '1px')
         .text(d => d.toString())
 
     return div.toReact()
