@@ -21,7 +21,7 @@ class BarChartsSVG extends React.Component {
             <p>Having a go at using D3 with <a target='_blank' href='http://redux.js.org/'>Redux</a> - bar chart based on <a target='_blank' href='https://bost.ocks.org/mike/bar/2'>this tutorial by Mike Bostock</a> (these bar charts are drawn with SVG rather than HTML)</p>
             <Panel header='Hard coded props' bsStyle='primary'>
               <BarChartSVG data={{0: 5, 1: 10, 2: 15, 3: 20, 4: 25}} />
-              <p>This BarChart component has hard-coded values passed into it from the BarCharts component</p>
+              <p>This BarChartSVG component has hard-coded values passed into it from the BarChartsSVG component</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>
               <ButtonGroup>
@@ -31,7 +31,7 @@ class BarChartsSVG extends React.Component {
                 <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
               </ButtonGroup>
               <BarChartSVG data={this.props.data} colour='#3fad46' />
-              <p>This BarChart component has data passed to it from props, linked from the Redux state in the BarChartContainer</p>
+              <p>This BarChartSVG component has data passed to it from props, linked from the Redux state in the BarChartSVGContainer</p>
             </Panel>
           </Col>
         </Row>
