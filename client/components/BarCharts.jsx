@@ -1,17 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, ButtonGroup, Col, Grid, Panel, Row } from 'react-bootstrap'
+import { Col, Grid, Panel, Row } from 'react-bootstrap'
 
 import BarChart from '../components/BarChart.jsx'
-import DataValue from '../components/DataValue.jsx'
+import DataValues from '../components/DataValue.jsx'
 
 import Constants from '../constants/bar-charts-constants'
 
 class BarCharts extends React.Component {
-  getDataKeys () {
-    return Object.keys(this.props.data) || []
-  }
-
   render () {
     return (
       <Grid>
@@ -28,12 +24,7 @@ class BarCharts extends React.Component {
               <p>This BarChart component has hard-coded values passed into it from the BarCharts component</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>
-              <ButtonGroup>
-                {this.getDataKeys().map((data, index) => {
-                  return <DataValue key={index} index={index} value={this.props.data[data]} increment={this.props.increment} />
-                })}
-                <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
-              </ButtonGroup>
+              <DataValues data={this.props.data} increment={this.props.increment} reset={this.props.reset} />
               <BarChart data={this.props.data} colour='#3fad46' />
               <p>This BarChart component has data passed to it from props, linked from the Redux state in the BarChartContainer</p>
             </Panel>

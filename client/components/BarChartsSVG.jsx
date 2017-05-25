@@ -1,17 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, ButtonGroup, Col, Grid, Panel, Row } from 'react-bootstrap'
+import { Col, Grid, Panel, Row } from 'react-bootstrap'
 
 import BarChartSVG from '../components/BarChartSVG.jsx'
-import DataValue from '../components/DataValue.jsx'
+import DataValues from '../components/DataValues.jsx'
 
 import Constants from '../constants/bar-charts-svg-constants'
 
 class BarChartsSVG extends React.Component {
-  getDataKeys () {
-    return Object.keys(this.props.data) || []
-  }
-
   render () {
     return (
       <Grid>
@@ -24,12 +20,7 @@ class BarChartsSVG extends React.Component {
               <p>This BarChartSVG component has hard-coded values passed into it from the BarChartsSVG component</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>
-              <ButtonGroup>
-                {this.getDataKeys().map((data, index) => {
-                  return <DataValue key={index} index={index} value={this.props.data[data]} increment={this.props.increment} />
-                })}
-                <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
-              </ButtonGroup>
+              <DataValues data={this.props.data} increment={this.props.increment} reset={this.props.reset} />
               <BarChartSVG data={this.props.data} colour='#3fad46' />
               <p>This BarChartSVG component has data passed to it from props, linked from the Redux state in the BarChartSVGContainer</p>
             </Panel>
@@ -38,12 +29,7 @@ class BarChartsSVG extends React.Component {
               <p>This BarChartSVG component has hard-coded values passed into it from the BarChartsSVG component - it uses a prop to render it as a vertical bar chart rather than horizonal</p>
             </Panel>
             <Panel header='Redux state props' bsStyle='success'>
-              <ButtonGroup>
-                {this.getDataKeys().map((data, index) => {
-                  return <DataValue key={index} index={index} value={this.props.data[data]} increment={this.props.increment} />
-                })}
-                <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
-              </ButtonGroup>
+              <DataValues data={this.props.data} increment={this.props.increment} reset={this.props.reset} />
               <BarChartSVG data={this.props.data} colour='#3fad46' vertical />
               <p>This BarChartSVG component has data passed to it from props, linked from the Redux state in the BarChartSVGContainer - it uses a prop to render it as a vertical bar chart rather than horizonal</p>
             </Panel>
