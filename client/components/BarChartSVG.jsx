@@ -27,7 +27,7 @@ class BarChartSVG extends React.Component {
     var svg = ReactFauxDOM.createElement('svg')
 
     const width = 420
-    const height = 420
+    const height = 300
     const barWidth = width / data.length
 
     const y = d3.scaleLinear()

@@ -37,6 +37,16 @@ class BarChartsSVG extends React.Component {
               <BarChartSVG data={{0: 5, 1: 10, 2: 15, 3: 20, 4: 25}} vertical />
               <p>This BarChartSVG component has hard-coded values passed into it from the BarChartsSVG component - it uses a prop to render it as a vertical bar chart rather than horizonal</p>
             </Panel>
+            <Panel header='Redux state props' bsStyle='success'>
+              <ButtonGroup>
+                {this.getDataKeys().map((data, index) => {
+                  return <DataValue key={index} index={index} value={this.props.data[data]} increment={this.props.increment} />
+                })}
+                <Button bsStyle='warning' onClick={() => this.props.reset()}>Clear</Button>
+              </ButtonGroup>
+              <BarChartSVG data={this.props.data} colour='#3fad46' vertical />
+              <p>This BarChartSVG component has data passed to it from props, linked from the Redux state in the BarChartSVGContainer - it uses a prop to render it as a vertical bar chart rather than horizonal</p>
+            </Panel>
           </Col>
         </Row>
       </Grid>
