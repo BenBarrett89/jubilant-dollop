@@ -8,31 +8,74 @@ class BarChartSVG extends React.Component {
     return this.props.data !== [] ? this.props.data : false
   }
 
+  getValues () {
+    return Object.keys(this.getData()).reduce((array, key, index) => {
+      array[index] = this.getData()[key]
+      return array
+    }, [])
+  }
+
   getColour () {
     return this.props.colour || '#4582ec'
   }
 
-  renderBarChart (data) {
+  renderVertical () {
+    return this.props.vertical && true
+  }
+
+  renderVerticalBarChart (data) {
     var svg = ReactFauxDOM.createElement('svg')
 
-    const values = Object.keys(data).reduce((array, key, index) => {
-      array[index] = data[key]
-      return array
-    }, [])
+    const width = 420
+    const height = 420
+    const barWidth = width / data.length
+
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(data)])
+      .range([height, 0])
+
+    const chart = d3.select(svg)
+      .attr('width', width)
+      .attr('height', height)
+
+    const bar = chart.selectAll('g')
+      .data(data)
+      .enter().append('g')
+      .attr('transform', (d, i) => 'translate(' + i * barWidth + ',0)')
+
+    bar.append('rect')
+       .attr('y', d => height - (height - y(d)))
+       .attr('height', d => height - y(d))
+       .attr('width', barWidth - 1)
+       .style('fill', this.getColour())
+
+    bar.append('text')
+       .attr('x', barWidth / 2)
+       .attr('y', d => y(d) + 3)
+       .attr('dy', '.75em')
+       .style('fill', 'white')
+       .style('text-anchor', 'middle')
+       .text(d => d)
+
+    return svg.toReact()
+  }
+
+  renderHorizontalBarChart (data) {
+    var svg = ReactFauxDOM.createElement('svg')
 
     const width = 420
     const barHeight = 20
 
     const x = d3.scaleLinear()
-      .domain([0, d3.max(values)])
+      .domain([0, d3.max(data)])
       .range([0, width])
 
     const chart = d3.select(svg)
       .attr('width', width)
-      .attr('height', barHeight * values.length)
+      .attr('height', barHeight * data.length)
 
     const bar = chart.selectAll('g')
-      .data(values)
+      .data(data)
       .enter().append('g')
       .attr('transform', (d, i) => 'translate(0,' + i * barHeight + ')')
 
@@ -42,10 +85,11 @@ class BarChartSVG extends React.Component {
       .style('fill', this.getColour())
 
     bar.append('text')
-      .attr('x', d => x(d) - 20)
+      .attr('x', d => x(d) - 15)
       .attr('y', barHeight / 2 - 2)
       .attr('dy', '.35em')
       .style('fill', 'white')
+      .style('text-anchor', 'middle')
       .text(d => d)
 
     return svg.toReact()
@@ -53,7 +97,8 @@ class BarChartSVG extends React.Component {
 
   render () {
     return (<div>
-      {this.renderBarChart(this.props.data)}
+      {this.renderVertical() && this.renderVerticalBarChart(this.getValues())}
+      {!this.renderVertical() && this.renderHorizontalBarChart(this.getValues())}
       <br />
     </div>
     )
@@ -62,7 +107,8 @@ class BarChartSVG extends React.Component {
 
 BarChartSVG.propTypes = {
   data: PropTypes.object,
-  colour: PropTypes.string
+  colour: PropTypes.string,
+  vertical: PropTypes.bool
 }
 
 export default BarChartSVG
