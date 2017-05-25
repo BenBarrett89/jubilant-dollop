@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Col, Grid, Panel, Row } from 'react-bootstrap'
 
 import BarChart from '../components/BarChart.jsx'
-import DataValues from '../components/DataValue.jsx'
+import DataValues from '../components/DataValues.jsx'
 
 import Constants from '../constants/bar-charts-constants'
 
